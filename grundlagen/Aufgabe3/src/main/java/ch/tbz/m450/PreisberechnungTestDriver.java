@@ -46,7 +46,7 @@ public class PreisberechnungTestDriver {
         return Math.abs(actual - expected) < tolerance;
     }
 
-    // Your original calculatePrice method
+    // Original calculatePrice method
     double calculatePrice(double baseprice, double specialprice, double extraprice, int extras, double discount) {
         double addon_discount;
         double result;
