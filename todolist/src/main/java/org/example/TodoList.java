@@ -41,6 +41,26 @@ public class TodoList {
         }
     }
 
+    public void removeCategory(String categoryName) {
+        if (categories.containsKey(categoryName)) {
+            categories.remove(categoryName);
+            System.out.println("Kategorie entfernt: " + categoryName);
+        } else {
+            System.out.println("Kategorie nicht gefunden: " + categoryName);
+        }
+    }
+
+    public void viewCategories() {
+        if (categories.isEmpty()) {
+            System.out.println("Keine Kategorien vorhanden.");
+        } else {
+            System.out.println("Kategorien:");
+            for (String categoryName : categories.keySet()) {
+                System.out.println(categoryName);
+            }
+        }
+    }
+
     public void removeTask(String categoryName, int index) {
         if (categories.containsKey(categoryName)) {
             ArrayList<Task> tasks = categories.get(categoryName);
