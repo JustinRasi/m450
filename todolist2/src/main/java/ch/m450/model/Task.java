@@ -7,7 +7,7 @@ public class Task {
     private boolean isCompleted;
     private Category category;
     private User user;
-    private final LocalDateTime createdAt = LocalDateTime.now();
+    private LocalDateTime createdAt = LocalDateTime.now();
     private LocalDateTime dueTo;
 
     public Task(){}

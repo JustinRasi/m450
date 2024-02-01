@@ -3,7 +3,6 @@ import ch.m450.model.Task;
 import ch.m450.model.User;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import org.mockito.Mockito;
 
 import java.time.LocalDateTime;
 
@@ -19,13 +18,13 @@ class TaskTest {
     void setUp() {
         category = mock(Category.class);
         user = mock(User.class);
-        task = mock(Task.class);
+        task = new Task("Task description", false, LocalDateTime.now());
     }
 
     @Test
     void setCategory() {
         when(category.getName()).thenReturn("Shopping");
-        when(task.getCategory()).thenReturn(category);
+        task.setCategory(category);
         assertEquals("Shopping", task.getCategory().getName());
     }
 
@@ -33,38 +32,38 @@ class TaskTest {
     void setUser() {
         when(user.getUsername()).thenReturn("John");
         when(user.getAge()).thenReturn(30);
-        when(task.getUser()).thenReturn(user);
+        task.setUser(user);
         assertEquals("John", task.getUser().getUsername());
         assertEquals(30, task.getUser().getAge());
     }
 
     @Test
     void isOverdue() {
-        when(task.isOverdue()).thenReturn(true);
+        task.setDueTo(LocalDateTime.now().minusDays(1));
         assertTrue(task.isOverdue());
     }
 
     @Test
     void isNotOverdue() {
-        when(task.isOverdue()).thenReturn(false);
+        task.setDueTo(LocalDateTime.now().plusDays(1));
         assertFalse(task.isOverdue());
     }
 
     @Test
     void isCompleted() {
-        when(task.isCompleted()).thenReturn(true);
+        task.setCompleted(true);
         assertTrue(task.isCompleted());
     }
 
     @Test
     void isNotCompleted() {
-        when(task.isCompleted()).thenReturn(false);
+        task.setCompleted(false);
         assertFalse(task.isCompleted());
     }
 
     @Test
     void setIsCompleted() {
-        when(task.isCompleted()).thenReturn(true);
+        task.setCompleted(true);
         assertTrue(task.isCompleted());
     }
 }
