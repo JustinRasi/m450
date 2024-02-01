@@ -1,13 +1,13 @@
 package org.example;
 
 public class Task {
-    private String description;
+    private String name;
 
-    public Task(String description) {
-        this.description = description;
+    public Task(String name) {
+        this.name = name;
     }
 
-    public String getDescription() {
-        return description;
+    public String getName() {
+        return name;
     }
 }
