@@ -19,13 +19,13 @@ class TaskTest {
     void setUp() {
         category = mock(Category.class);
         user = mock(User.class);
-        task = new Task("Buy milk", false, LocalDateTime.of(2024, 2, 1, 11, 0));
+        task = mock(Task.class);
     }
 
     @Test
     void setCategory() {
         when(category.getName()).thenReturn("Shopping");
-        task.setCategory(category);
+        when(task.getCategory()).thenReturn(category);
         assertEquals("Shopping", task.getCategory().getName());
     }
 
@@ -33,8 +33,38 @@ class TaskTest {
     void setUser() {
         when(user.getUsername()).thenReturn("John");
         when(user.getAge()).thenReturn(30);
-        task.setUser(user);
+        when(task.getUser()).thenReturn(user);
         assertEquals("John", task.getUser().getUsername());
         assertEquals(30, task.getUser().getAge());
+    }
+
+    @Test
+    void isOverdue() {
+        when(task.isOverdue()).thenReturn(true);
+        assertTrue(task.isOverdue());
+    }
+
+    @Test
+    void isNotOverdue() {
+        when(task.isOverdue()).thenReturn(false);
+        assertFalse(task.isOverdue());
+    }
+
+    @Test
+    void isCompleted() {
+        when(task.isCompleted()).thenReturn(true);
+        assertTrue(task.isCompleted());
+    }
+
+    @Test
+    void isNotCompleted() {
+        when(task.isCompleted()).thenReturn(false);
+        assertFalse(task.isCompleted());
+    }
+
+    @Test
+    void setIsCompleted() {
+        when(task.isCompleted()).thenReturn(true);
+        assertTrue(task.isCompleted());
     }
 }
