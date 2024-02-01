@@ -18,25 +18,10 @@ public class Main {
         task1.setCategory(shopping);
         task1.setUser(john);
 
-        //Task task2 = new Task("Call boss", false);
-        //task2.setCategory(work);
-        //task2.setUser(jane);
-        //task2.setCompleted(true);
-
         System.out.println("Task: " + task1.getDescription());
         System.out.println("Category: " + task1.getCategory().getName());
         System.out.println("Completed: " + task1.isCompleted());
         System.out.println("User: " + task1.getUser().getUsername());
         System.out.println("Is overdue: " + task1.isOverdue());
-
-        //System.out.println("Task: " + task2.getDescription());
-        //System.out.println("Category: " + task2.getCategory().getName());
-        //System.out.println("Completed: " + task2.isCompleted());
-        //System.out.println("User: " + task2.getUser().getUsername());
-
-
-        //System.out.println(todoList.task1.getDescription());
-        //todoList.getTask2().setCompleted(false);
-        //System.out.println(todoList.task2.isCompleted());
     }
 }
