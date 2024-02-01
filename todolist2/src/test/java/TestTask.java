@@ -66,4 +66,28 @@ class TaskTest {
         task.setCompleted(true);
         assertTrue(task.isCompleted());
     }
+
+    @Test
+    void getDescription() {
+        assertEquals("Task description", task.getDescription());
+    }
+
+    @Test
+    void getCreatedAt() {
+        assertNotNull(task.getCreatedAt());
+    }
+
+    @Test
+    void getDueTo() {
+        LocalDateTime dueTo = LocalDateTime.now().plusDays(1);
+        task.setDueTo(dueTo);
+        assertEquals(dueTo, task.getDueTo());
+    }
+
+    @Test
+    void setDueTo() {
+        LocalDateTime dueTo = LocalDateTime.now().plusDays(2);
+        task.setDueTo(dueTo);
+        assertEquals(dueTo, task.getDueTo());
+    }
 }
